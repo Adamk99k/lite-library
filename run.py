@@ -25,6 +25,7 @@ def let_user_choose():
     """
     print("\n")
     print("Wellcome to Lite Library. \n")
+    print("--#placeholder texc--")
     print("Please select the service you require. \n")
     print("1 = View books available.")
     print("2 = Borrow a book.")
@@ -47,7 +48,7 @@ def let_user_choose():
             print("Please only choose from 1 / 2 or 3.")
             continue
 
-
+    """This section will validate users input and do the selected tasks."""
     if user_option == 1:
         print("Viewing all books....\n")
         for i in all_books:
@@ -63,15 +64,42 @@ def let_user_choose():
             print("No problem, Please do come back if you want to use lite library..")
             quit()
     elif user_option == 2:
-        print("You want to borrow a book. GREAT!! \n")
-        print("Please follow our instructions to add your borrowed book to our list.")
+        opt_two()
         # grab users borrowed book details and add to google sheet 'Borrowed books' then return a message comfiming book has been added successfuly.
     elif user_option == 3:
         print("You choose to retunr a book your previously borrowed.")
         print("Thank you from us at Lite Library for retrning your book.")
-        print("Please follow our prompts so we can update your account on our list to")
+        print("Please follow our prompts so we can update your account on our list.")
+
+#write a function insert or use in option 2. Borrow a book.
+def opt_two():
+    """
+    Function for option '2', That adds users borrowed books to spreedsheet.
+    """
+    print(f"You want to borrow a book. GREAT!! \n")
+    print(f"Please follow our instructions to add your borrowed book to our list. \n")
+
+    name = input("Enter your name: \n")
+    age = input("Enter your age: \n")
+    email = input("Enter your email: \n")
+    copys = input("Copys of the book are you taking: \n")
+    book_author = input("name of the author: \n")
+    book_name = input("Title of the book: \n")
+    date_borrow = input("todats date: exmple: 16/03/2019 .. \n")
+
+
+    # funtion not complete..
+
+    #borrowed_books = SHEET.worksheet("borrowed-books")
+    #borrowed_books.append_row()
 
 
 
 
+
+""" 
+Beacuse all code written so far is in a function, Python will read everything without having to do anything
+up intill this point, This is where the first action python takes is read and due to it being all the way 
+at the bottom Python has read every thing
+"""
 let_user_choose()
