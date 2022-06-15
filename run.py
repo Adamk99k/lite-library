@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import time
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -112,6 +113,7 @@ def let_user_choose():
         print("Viewing all books....\n")
         for i in all_books:
             print(i, '\n')
+            time.sleep(0.5)
         print("If you want to borrow a book ")
         print("please seclect option '2' from the main menu.")
         print("Make sure you remember the details of the book you want to borrow if thats what you decide to do... \n")
@@ -159,8 +161,9 @@ def update_borrowed_book_worksheet(borrowed_book):
     """
     Takes the taken data for borrowed book and adds to worksheet
     """
-    for i in range(5):
+    for i in range(3):
         print("Updateing worksheet... \n")
+        time.sleep(0.5)
     
     borrowed_worksheet = SHEET.worksheet("borrowed-books")
     borrowed_worksheet.append_row(borrowed_book)
@@ -175,8 +178,9 @@ def update_returned_book_worksheet(returned_book):
     cvcd
     """
 
-    for i in range(5):
+    for i in range(3):
         print("Updateing worksheet... \n")
+        time.sleep(0.5)
     
     return_worksheet = SHEET.worksheet("returned-books")
     return_worksheet.append_row(returned_book)
