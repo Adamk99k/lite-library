@@ -64,42 +64,52 @@ def let_user_choose():
             print("No problem, Please do come back if you want to use lite library..")
             quit()
     elif user_option == 2:
-        opt_two()
+        get_data()
+        
         # grab users borrowed book details and add to google sheet 'Borrowed books' then return a message comfiming book has been added successfuly.
+
     elif user_option == 3:
         print("You choose to retunr a book your previously borrowed.")
         print("Thank you from us at Lite Library for retrning your book.")
         print("Please follow our prompts so we can update your account on our list.")
 
-#write a function insert or use in option 2. Borrow a book.
-def opt_two():
+
+
+# func to grab borrowed books details
+def get_data():
+    global borrowed_book
+    print("Please enter these details, Each question must be ")
+    print("seperated with a ',' Here is what you must write.\n")
+    print("Enter your name: David ")
+    print("Enter your age: 25")
+    print("Enter your email:  david@gmail.com")
+    print("Copys of the book are you taking:  1")
+    print("name of the author: JK Rowling")
+    print("Title of the book: Harry Potter and the Goblet of Fire")
+    print("Todays date:  14/5/2021 \n")
+
+    print("You should type your text like this... \n")
+    print("David , 25 , david@gmail.com , 1 , JK Rowling , Harry potter and the Goblet of fire , 14'5'2021 \n")
+    
+    data_text = input("Please enter your text like the example above now: \n")
+    borrowed_book = data_text.split(",")
+
+#def update_worksheet:
+def update_borrowed_book_worksheet(borrowed_book):
     """
-    Function for option '2', That adds users borrowed books to spreedsheet.
+    Takes the taken data for borrowed book and adds to worksheet
     """
-    print(f"You want to borrow a book. GREAT!! \n")
-    print(f"Please follow our instructions to add your borrowed book to our list. \n")
 
-    name = input("Enter your name: \n")
-    age = input("Enter your age: \n")
-    email = input("Enter your email: \n")
-    copys = input("Copys of the book are you taking: \n")
-    book_author = input("name of the author: \n")
-    book_name = input("Title of the book: \n")
-    date_borrow = input("todats date: exmple: 16/03/2019 .. \n")
+    print("Updateing worksheet... \n")
 
-
-    # funtion not complete..
-
-    #borrowed_books = SHEET.worksheet("borrowed-books")
-    #borrowed_books.append_row()
+    borrowed_worksheet = SHEET.worksheet("borrowed-books")
+    borrowed_worksheet.append_row(borrowed_book)
+    print("Updated sucsesfully...")
+    print("RULES FOR BORROWEING.")
+    print("Now going back to main menu.")
+    let_user_choose()
 
 
 
-
-
-""" 
-Beacuse all code written so far is in a function, Python will read everything without having to do anything
-up intill this point, This is where the first action python takes is read and due to it being all the way 
-at the bottom Python has read every thing
-"""
 let_user_choose()
+update_borrowed_book_worksheet(borrowed_book)
