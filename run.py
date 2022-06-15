@@ -13,7 +13,6 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('lite-library')
 
 books = SHEET.worksheet('books')
-
 all_books = books.get_all_values()
 
 
@@ -29,15 +28,14 @@ def let_user_choose():
     print("Please select the service you require. \n")
     print("1 = View books available.")
     print("2 = Borrow a book.")
-    print("3 = Return a borrowed book. \n")
-
-
+    print("3 = Return a borrowed book.")
+    print("4 = Quit the app. \n")
     while True:
         try:
             global user_option
-            user_option = int(input("Enter 1 , 2 or 3 now: \n"))
-            if user_option > 3:
-                print("No option for that number. Try again")
+            user_option = int(input("Enter 1, 2, 3, or 4 now: \n"))
+            if user_option >= 5:
+                print("Number to high. Try again")
                 continue
             elif user_option <= 0:
                 print("Number to low. Try again.")
@@ -45,10 +43,8 @@ def let_user_choose():
             print(f'Your choice was {user_option}')
             break
         except ValueError:
-            print("Please only choose from 1 / 2 or 3.")
+            print("Please only choose from 1 / 2 / 3 or 4.")
             continue
-
-    """This section will validate users input and do the selected tasks."""
     if user_option == 1:
         print("Viewing all books....\n")
         for i in all_books:
@@ -65,14 +61,13 @@ def let_user_choose():
             quit()
     elif user_option == 2:
         get_data()
-        
-        # grab users borrowed book details and add to google sheet 'Borrowed books' then return a message comfiming book has been added successfuly.
-
     elif user_option == 3:
         print("You choose to retunr a book your previously borrowed.")
         print("Thank you from us at Lite Library for retrning your book.")
         print("Please follow our prompts so we can update your account on our list.")
-
+    elif user_option == 4:
+        print("Goodbye, See you next time! \n")
+        quit()
 
 
 # func to grab borrowed books details
@@ -87,21 +82,18 @@ def get_data():
     print("name of the author: JK Rowling")
     print("Title of the book: Harry Potter and the Goblet of Fire")
     print("Todays date:  14/5/2021 \n")
-
     print("You should type your text like this... \n")
     print("David , 25 , david@gmail.com , 1 , JK Rowling , Harry potter and the Goblet of fire , 14'5'2021 \n")
-    
     data_text = input("Please enter your text like the example above now: \n")
     borrowed_book = data_text.split(",")
 
-#def update_worksheet:
+
+#def update_worksheet with data user submited for borrowed
 def update_borrowed_book_worksheet(borrowed_book):
     """
     Takes the taken data for borrowed book and adds to worksheet
     """
-
     print("Updateing worksheet... \n")
-
     borrowed_worksheet = SHEET.worksheet("borrowed-books")
     borrowed_worksheet.append_row(borrowed_book)
     print("Updated sucsesfully...")
