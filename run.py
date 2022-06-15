@@ -51,9 +51,37 @@ Todays date:  14/5/2021
 
 You should type your text like this...
 
-David , 25 , david@gmail.com , 1 , JK Rowling , Harry potter and the Goblet of fire , 14'5'2021
+David , 25 , david@gmail.com , 1 , JK Rowling , Harry potter and the Goblet of fire , 14/5/2021
 """
 
+return_message = """
+Thanks for returning your book.
+Lets get started...
+
+Please follow the instructions.
+Each question must be seperated with a ',' 
+Here are the questions you must fill out
+with a example.
+
+Enter your name: David 
+
+Enter your age: 25
+
+Enter your email:  david@gmail.com
+
+Copys of the book are you returning: 1
+
+name of the author: JK Rowling
+
+Title of the book: Harry Potter and the Goblet of Fire
+
+Date of when you took the book:  14/5/2021
+
+Todays date: 13/6/2021
+
+You should write your text like this.
+David , 25 , david@gmail.com , 1 , JK Rowling , Harry potter and the Goblet of fire , 14/5/2021 , 13/6/2021
+"""
 
 def let_user_choose():
     """
@@ -97,8 +125,7 @@ def let_user_choose():
     elif user_option == 2:
         get_data()
     elif user_option == 3:
-        #fucntioon to store the return details
-        pass
+        return_data()
     elif user_option == 4:
         print("Goodbye, See you next time! \n")
         quit()
@@ -107,29 +134,55 @@ def let_user_choose():
 # func to grab borrowed books details
 def get_data():
     global borrowed_book
+
     print(borrow_text)
 
     data_text = input("Please enter your text like the example above now: \n")
     borrowed_book = data_text.split(",")
+    update_borrowed_book_worksheet(borrowed_book)
 
-
+# function to grab details about the returned book to use in update function
 def return_data():
-    print("You have choose the option to return a book. \n")
+    global returned_book
+
+    print(return_message)
+
+    return_text = input("Please enter your text like the example above now: \n")
+    returned_book = return_text.split(",")
+    update_returned_book_worksheet(returned_book)
+
+
+
 
 #def update_worksheet with data user submited for borrowed
 def update_borrowed_book_worksheet(borrowed_book):
     """
     Takes the taken data for borrowed book and adds to worksheet
     """
-    print("Updateing worksheet... \n")
+    for i in range(5):
+        print("Updateing worksheet... \n")
+    
     borrowed_worksheet = SHEET.worksheet("borrowed-books")
     borrowed_worksheet.append_row(borrowed_book)
     print("Updated sucsesfully...")
     print("RULES FOR BORROWEING.")
+    print("Going back to main menu.")
+    let_user_choose()
+
+#function to update returned-books sheet useing the data from return_data function.
+def update_returned_book_worksheet(returned_book):
+    """
+    cvcd
+    """
+
+    for i in range(5):
+        print("Updateing worksheet... \n")
+    
+    return_worksheet = SHEET.worksheet("returned-books")
+    return_worksheet.append_row(returned_book)
+    print("Updated sucsesfully...")
+    print("placeholder for message to do with returns.")
     print("Now going back to main menu.")
     let_user_choose()
 
-
-
 let_user_choose()
-update_borrowed_book_worksheet(borrowed_book)
