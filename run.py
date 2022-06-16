@@ -19,11 +19,15 @@ all_books = books.get_all_values()
 
 menu_message = """ 
 Wellcome to Lite Library.
-placeholder text
 
-random text
+Here at Lite Library we only keep top rated books.
+This is our automated system to keep track and log
+what books we have, and other infomation.
+We value your service and we wish you have a good
+experience.
 
-Please select the service you require.
+Please type the service you require.
+
 1 = View books available.
 2 = Borrow a book.
 3 = Return a borrowed book.
@@ -31,54 +35,51 @@ Please select the service you require.
 """
 
 borrow_text = """
-Please enter these details they way we show you.
+Hey and thanks for chooseing to borrow a book.
+Please answer these questions in the format we show.
 Each question must be seperated with a ',' 
 Here is what you must write.
 
-Enter your name: David 
+1,Enter your name: David 
 
-Enter your age: 25
+2,Enter your age: 25
 
-Enter your email:  david@gmail.com
+3,Enter your email:  david@gmail.com
 
-Copys of the book are you taking: 1
+4,Copys of the book are you taking: 1
 
-name of the author: JK Rowling
+5,Name of the author: JK Rowling
 
-Title of the book: Harry Potter and the Goblet of Fire
+6,Title of the book: Harry Potter and the Goblet of Fire
 
-Todays date:  14/5/2021
+7,Todays date:  14/5/2021
 
-
-You should type your text like this...
-
+You should write your text like this.
 David , 25 , david@gmail.com , 1 , JK Rowling , Harry potter and the Goblet of fire , 14/5/2021
 """
 
 return_message = """
-Thanks for returning your book.
+Wellcome to the return book page
 Lets get started...
-
-Please follow the instructions.
+Please answer these questions in the format we show.
 Each question must be seperated with a ',' 
-Here are the questions you must fill out
-with a example.
+Here is what you must write.
 
-Enter your name: David 
+1,Enter your name: David 
 
-Enter your age: 25
+2,Enter your age: 25
 
-Enter your email:  david@gmail.com
+3,Enter your email:  david@gmail.com
 
-Copys of the book are you returning: 1
+4,Copys of the book are you returning: 1
 
-name of the author: JK Rowling
+5,Name of the author: JK Rowling
 
-Title of the book: Harry Potter and the Goblet of Fire
+6,Title of the book: Harry Potter and the Goblet of Fire
 
-Date of when you took the book:  14/5/2021
+7,Date of when you took the book:  14/5/2021
 
-Todays date: 13/6/2021
+8,Todays date: 13/6/2021
 
 You should write your text like this.
 David , 25 , david@gmail.com , 1 , JK Rowling , Harry potter and the Goblet of fire , 14/5/2021 , 13/6/2021
@@ -97,33 +98,39 @@ def let_user_choose():
     while True:
         try:
             global user_option
-            user_option = int(input("Enter 1, 2, 3, or 4 now: \n"))
+            user_option = int(input("Enter option now: \n"))
             if user_option >= 5:
                 print("Number to high. Try again")
                 continue
             elif user_option <= 0:
                 print("Number to low. Try again.")
                 continue
-            print(f'Your choice was {user_option}')
             break
         except ValueError:
             print("Please only choose from 1 / 2 / 3 or 4.")
             continue
     if user_option == 1:
         print("Viewing all books....\n")
+        print("We currently have 34 books.\n")
         for i in all_books:
             print(i, '\n')
-            time.sleep(0.5)
-        print("If you want to borrow a book ")
-        print("please seclect option '2' from the main menu.")
-        print("Make sure you remember the details of the book you want to borrow if thats what you decide to do... \n")
+            #time.sleep(0.5)
+        print("Want to borrow a book?")
+        print("You need to go back to the Main Menu and select that option")
+        print("Please keep the details of the book you want to borrow")
+        print("We recommend writing the books details down to use in the borrow book section.\n")
        
        
         while True:
             try:
                 repeat = str(input("Want to go back to the Main Menu? ( Y = Main Menu / N = Quit App ) \n")).lower()
                 if repeat == "n":
-                    print("quiting app.")
+                    print("Thankyou for viwing the books we have in stock.")
+                    print("We hope next time you find the book your looking for")
+                    for i in range(3):
+                        print("App quiting...")
+                        time.sleep(1)
+                    print("App quit successfuly.")
                     quit()
                 elif repeat == "y":
                     print("Going back to main menu.")
@@ -145,7 +152,7 @@ def let_user_choose():
         quit()
 
 
-# func to grab borrowed books details
+# function to grab data
 def get_data():
     global borrowed_book
 
@@ -180,14 +187,13 @@ def update_borrowed_book_worksheet(borrowed_book):
     borrowed_worksheet = SHEET.worksheet("borrowed-books")
     borrowed_worksheet.append_row(borrowed_book)
     print("Updated sucsesfully...")
-    print("RULES FOR BORROWEING.")
     print("Going back to main menu.")
     let_user_choose()
 
 #function to update returned-books sheet useing the data from return_data function.
 def update_returned_book_worksheet(returned_book):
     """
-    cvcd
+    #
     """
 
     for i in range(3):
