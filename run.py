@@ -117,13 +117,25 @@ def let_user_choose():
         print("If you want to borrow a book ")
         print("please seclect option '2' from the main menu.")
         print("Make sure you remember the details of the book you want to borrow if thats what you decide to do... \n")
-        repeat = str(input("Want to go to main menu? yes / no : \n")).lower()
-        if repeat == "yes":
-            print("Going to main menu..")
-            let_user_choose()
-        else:
-            print("No problem, Please do come back if you want to use lite library..")
-            quit()
+       
+       
+        while True:
+            try:
+                repeat = str(input("Want to go back to the Main Menu? ( Y = Main Menu / N = Quit App ) \n")).lower()
+                if repeat == "n":
+                    print("quiting app.")
+                    quit()
+                elif repeat == "y":
+                    print("Going back to main menu.")
+                    let_user_choose()
+                else:
+                    print("Try again.")
+                    continue
+            except ValueError:
+                pass
+            
+
+
     elif user_option == 2:
         get_data()
     elif user_option == 3:
