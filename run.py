@@ -30,7 +30,7 @@ def let_user_choose():
 
     while True:
         try:
-            global user_option
+            
             user_option = int(input("Enter option now: \n"))
             if user_option >= 5:
                 print("Number to high. Try again")
