@@ -49,6 +49,13 @@ Click on Deploy. <br>
 
 
 # Features not implemented 
+Due to time and deadlines I could not implement all of what I wanted to. Some of the features i would have loved to add to this application are.<br>
+* Function to validate how many copies of the book there are. <br>When a user borrows or returns that book the 'Copys available' section on the worksheet would increment and decrease based on if the user is borrowing or returning a book.<br>
+* Book checker - I wanted to add a function to check if the book the user is trying to borrow is infact in the list or not.<br>
+* Email check - A function that checks if the user's email is valid or not when prompted to add it.<br>
+* Automatic email sender - This function would have sent a automatic email to the user once they had returned or borrowed a book.<br>
+* I also wanted to add something that allows the user to scroll through the available books and simply select the book they want and save that information for when the user is prompted to add the book information. This idea would give a better user experience.<br>
+
 
 
 # Technologies used
