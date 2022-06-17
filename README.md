@@ -32,12 +32,31 @@ The main aim of this application was to make a simple way for a library to add b
 
 
 # Deployment
+This project was deployed using Code Institutes terminal for Heroku.<br>
+<br>
+Steps to deploy:
+<br>
+Fork or clone this repository.<br>
+Create a new Heroku App.<br>
+Set the buildbacks to Python and NodeJS in that order.<br>
+Link the Heroku app to the repository via GitHub.<br>
+Click on Deploy. <br>
+
 
 
 # Features not implemented 
 
 
 # Technologies used
+## Langusages.<br>
+* Python programming language is the main language used for this system.<br>
+## Frameworks and tools. <br>
+* GitHub - Used to store my code in a remote repository.<br>
+* GitPod - Used to edit my code and push to GitHub.<br>
+* Lucid Chart - Used to create a mock up flow chart.<br>
+* Google Sheets - Used to store data outside of this Application.<br>
+* Google Cloud Platform - Used for authentications, Permissions to the google services, google auth and all sheets. <br>
+* Heroku Platform - Used to deploy this project into a live environment.
 
 
 # Credits
