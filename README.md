@@ -13,6 +13,7 @@ The target audience is really anybody from all ages who would like to use Lite L
 The main aim of this application was to make a simple way for a library to add books,users data and other information to a external worksheet automatically. In this case the external worksheet is google Spreadsheet.
 
 # Flow chart.
+![flowChart](/lite-library-flowchart.png)
 
 # Features
 * Main Menu. <br> The main function in this application acts as the main menu for the user.<br>This Main Menu is the core navigation tool used to get the user to and from the correct service offered. Here is how it is structured.<br>The main menu starts and greets the user.<br>Users then have an option too either...<br>1 = View books available.<br>
@@ -48,7 +49,7 @@ Click on Deploy. <br>
 
 
 # Technologies used
-## Langusages.<br>
+## Languages.<br>
 * Python programming language is the main language used for this system.<br>
 ## Frameworks and tools. <br>
 * GitHub - Used to store my code in a remote repository.<br>
