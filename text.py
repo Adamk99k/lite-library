@@ -41,7 +41,7 @@ David , 25 , david@gmail.com , 1 , JK Rowling , Harry potter and the Goblet of f
 
 return_message = """
 Welcome to the return book page
-Let'ss get started...
+Let's get started...
 Please answer these questions in the format we show.
 Each question must be separated with a ',' comma.
 Here is what you must write.

@@ -159,5 +159,6 @@ def return_data():
     # Calling append() fucntion to add detials to returned worksheet.
     update_returned_book_worksheet(returned_book)
 
-
+# Pythons first action starts here. 
+# Because this is at the bottom, Python has read all code above.
 let_user_choose()
