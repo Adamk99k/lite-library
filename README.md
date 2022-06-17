@@ -29,7 +29,10 @@ The main aim of this application was to make a simple way for a library to add b
 
 * Option Four: Quit app. <br> This option simple calls the quit() function built in and quits the app.
 
-# Testing
+# Testing.
+* To test my code i ran it through online python code validators, The main issue i was getting is my print lines being too long.<br>
+To solve most of this type of issues i added my print text under variables stored on a separate file named 'text.py'.
+I then printed the variables out when i needed the text to prevent long use of print statements.
 
 
 # Deployment
