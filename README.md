@@ -61,3 +61,7 @@ Click on Deploy. <br>
 
 
 # Credits
+* Code institute for the deployment mock terminal and python learning material for python.<br>
+* Lucid chart for creating a flow chart.<br>
+* Reverso.net for spelling check.
+
